@@ -1,0 +1,74 @@
+{
+  "height": 30,
+  "spacing": 4,
+
+  "modules-left": [
+    "hyprland/workspaces"
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+    "custom/volume-osd",
+    "pulseaudio",
+    "cpu",
+    "memory",
+    "temperature",
+    "network",
+    "battery"
+  ],
+
+  "clock": {
+    "format": "{:%H:%M:%S}", 
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "interval": 1
+  },
+
+  "pulseaudio": {
+    "format": "{volume}% {icon}",
+    "format-muted": "",
+    "format-icons": {
+      "default": ["", "", ""]
+    },
+    "on-click": "pavucontrol",
+    "on-scroll-up": "pamixer -i 5 && ~/.config/waybar/scripts/volume-osd.sh",
+    "on-scroll-down": "pamixer -d 5 && ~/.config/waybar/scripts/volume-osd.sh"
+  },
+
+
+  "cpu": {
+    "format": "{usage}% "
+  },
+
+  "memory": {
+    "format": "{}% "
+  },
+
+  "temperature": {
+    "critical-threshold": 80,
+    "format": "{temperatureC}°C {icon}",
+    "format-icons": ["", "", ""]
+  },
+
+  "network": {
+    "format-wifi": "{icon}",
+    "format-ethernet": "",
+    "format-disconnected": "⚠",
+    "format-icons": [""]
+  },
+
+  "battery": {
+        "format": "<span font='Font Awesome 5 Free 11'>{icon}</span> {capacity}%-{time}",
+        "format-icons": ["", "", "", "", ""],
+        "format-time": "{H}h{M}m",
+        "format-charging": "<span font='Font Awesome 5 Free'></span>  <span font='Font Awesome 5 Free 11'>{icon}</span>  {capacity}% - {time}",
+        "format-full": "<span font='Font Awesome 5 Free'></span>  <span font='Font Awesome 5 Free 11'>{icon}</span>  Charged",
+        "interval": 3,
+        "states": {
+            "warning": 25,
+            "critical": 10
+        },
+        "tooltip": false,
+        "on-click": "2"
+    },
+}
