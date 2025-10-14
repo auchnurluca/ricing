@@ -1,0 +1,3 @@
+Host homeserver
+    HostName 100.102.40.112
+    User denode
